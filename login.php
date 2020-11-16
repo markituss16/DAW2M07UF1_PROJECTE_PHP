@@ -10,13 +10,13 @@
 session_start();
 
 	if(($_POST["nom_usuari"]!="") && ($_POST["ctsnya"]!="")){
-		$fitxer_usuaris = "login-usuaris.txt";
+		$fitxer_usuaris = "./usuaris";
 		if(file_exists($fitxer_usuaris)){
 			$fitxer = fopen($fitxer_usuaris,"r") or die ("No es pot llegir la llista d'usuaris");
 			$usuari_valid = FALSE;
-			while (!feof($fitxer)){
+			while (!feof($fitxer) && ($usuari_valid == FALSE)){
 				$usuari = explode(":",fgets($fitxer));
-				if (($_POST["nom"] == $usuari[0]) && ($_POST["ctsnya"] == $usuari[1])){
+				if (($_POST["nom_usuari"] == $usuari[0]) && ($_POST["ctsnya"] == $usuari[1])){
 					$usuari_valid = TRUE;
 				}
 			}
@@ -26,10 +26,10 @@ session_start();
 				$_SESSION['acces']=1;
 			}
 			else{
-				echo "L'usuari ".$_POST["nom"]." no ha pogut ser validat, per tant no té accés a l'aplicació.";
+				echo "Usuari o contrasenya incorrecte, torna-ho a intentar de nou.";
 			}
 		}else{
-			echo "La llista d'usuaris encara no ha sigut creada. No es pot validar l'usuari ".$_POST["nom"]."<br>";
+			echo "La llista d'usuaris encara no ha sigut creada. No es pot validar l'usuari ".$_POST["nom_usuari"]."<br>";
 		}
 	}else{
 		echo "No hi ha dades per a la validació de l'usuari.<br>";
