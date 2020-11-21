@@ -24,6 +24,11 @@ session_start();
 
 			if($usuari_valid){
 				$_SESSION['acces']=1;
+				$_SESSION["nom_usuari"] = $_POST["nom_usuari"];
+				echo "<a href=index.php class='btn btn-primary m-4'>A comprar!</a>";
+				if($_SESSION["nom_usuari"] == 'admin'){
+					echo "<p class='m1-1'>Benvingut administrador</p><a href=register.html class='btn btn-link ml-1'>Registra un nou compte aquí</a>";
+				}
 			}
 			else{
 				echo "Usuari o contrasenya incorrecte, torna-ho a intentar de nou.";
