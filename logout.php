@@ -6,8 +6,7 @@
     <title>Tancar la sessió</title>
 </head>    
 <body>
-    <?php
-    $_SESSION['acces']=0;
+    <?php $_SESSION['acces']=0;
     session_destroy();
     echo "Has tancat la sessió<br><br>\n";
     echo "<a href=login.html class='btn btn-primary m-4'>Tornar a l'inici</a>\n";

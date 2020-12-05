@@ -2,21 +2,22 @@
 	<head>
 		<meta content="text/html; charset=UTF-8" http-equiv="content-type">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <title>Sessió iniciada com a usuari</title>
+        <title>Verificació del login</title>
 	</head>
 <body>
 
 <?php
 session_start();
 
-	if(($_POST["nom_usuari"]!="") && ($_POST["ctsnya"]!="")){
-		$fitxer_usuaris = "./usuaris";
+	if(($_POST["nom_usuari"]!="")&&($_POST["ctsnya"]!="")){
+		$fitxer_usuaris="usuaris.txt";
 		if(file_exists($fitxer_usuaris)){
 			$fitxer = fopen($fitxer_usuaris,"r") or die ("No es pot llegir la llista d'usuaris");
 			$usuari_valid = FALSE;
-			while (!feof($fitxer) && ($usuari_valid == FALSE)){
-				$usuari = explode(":",fgets($fitxer));
-				if (($_POST["nom_usuari"] == $usuari[0]) && ($_POST["ctsnya"] == $usuari[1])){
+			while(!feof($fitxer) && ($usuari_valid == FALSE)){
+				$verificar = explode(":",fgets($fitxer));
+				if (($_POST["nom_usuari"] == $verificar[0]) && ($_POST["ctsnya"] == $verificar[1])){
+					echo "Hola";
 					$usuari_valid = TRUE;
 				}
 			}
@@ -25,12 +26,12 @@ session_start();
 			if($usuari_valid){
 				$_SESSION['acces']=1;
 				$_SESSION["nom_usuari"] = $_POST["nom_usuari"];
-				echo "<a href=index.php class='btn btn-primary m-4'>A comprar!</a>";
-				if($_SESSION["nom_usuari"] == 'admin'){
-					echo "<p class='m1-1'>Benvingut administrador</p><a href=register.html class='btn btn-link ml-1'>Registra un nou compte aquí</a>";
-				}
-			}
-			else{
+					if($_SESSION["nom_usuari"] == "admin"){
+						header('Location: /projecte_php_UF1/admin.php');
+					}else{
+						header('Location: /projecte_php_UF1/cataleg_usuari.html');
+					}
+			}else{
 				echo "Usuari o contrasenya incorrecte, torna-ho a intentar de nou.";
 			}
 		}else{
@@ -41,4 +42,4 @@ session_start();
 	}
 ?>
 </body>
-</html>
+</html> 
