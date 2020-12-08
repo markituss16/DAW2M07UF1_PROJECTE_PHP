@@ -9,7 +9,6 @@
     <?php $_SESSION['acces']=0;
     session_destroy();
     echo "Has tancat la sessió<br><br>\n";
-    echo "<a href=login.html class='btn btn-primary m-4'>Tornar a l'inici</a>\n";
     print '<meta http-equiv="refresh" content="2;url=./login.html">';
     ?>
 </body>

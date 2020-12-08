@@ -1,6 +1,8 @@
 <?php
-session_name('admin');
-session_start();
+    $fitxer_usuaris="fitxers/usuaris.txt";
+    $fitxer = fopen($fitxer_usuaris,"r") or die ("No es pot llegir la llista d'usuaris");
+
+    $f = file_get_contents($fitxer_usuaris);
 ?>
 
 <html>
@@ -8,7 +10,7 @@ session_start();
 		<meta content="text/html; charset=UTF-8" http-equiv="content-type">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="css/estils.css">
-        <title>Pàgina de l'administrador</title>
+        <title>Gestionar usuaris</title>
 	</head>
 <body>
     <nav>
@@ -30,15 +32,27 @@ session_start();
         </ul>
     </nav>
 
-    <div class="taula_productes">
-        <img id="img" src="img_productes/macbook.jpg" alt="a">  
-        <img id="img" src="img_productes/macbook.jpg" alt="a"> 
-        <img id="img" src="img_productes/macbook.jpg" alt="a"> 
-        <img id="img" src="img_productes/macbook.jpg" alt="a"> 
-        <img id="img" src="img_productes/macbook.jpg" alt="a"> 
-        <img id="img" src="img_productes/macbook.jpg" alt="a">
-        <img id="img" src="img_productes/macbook.jpg" alt="a"> 
-        <img id="img" src="img_productes/macbook.jpg" alt="a">  
+    <div>
+        <h1>Gestionar Usuaris</h1>
+        <table border="1px">
+            <?php
+                $usuari = explode("\n",$f);
+
+                foreach($usuari as $user => $key){
+                    $usuaris = $usuari[$user];
+                    $nomUsuari = explode(":",$usuaris);
+
+                    for($i=0; $i<sizeof($nomUsuari);$i+=2){
+                        echo "<tr>
+                                <td>".$nomUsuari[$i]."</td>
+                                <form action='modificarUsuari.php' method='POST'><td><button type='submit' name='nom_usuari' value=".$nomUsuari[$i].">Modificar</button></td></form>
+                                <form action='eliminarUsuari.php' method='POST'><td><button type='submit' name='nom_usuari' value=".$nomUsuari[$i].">Esborrar</button></td></form>
+                            </tr>";
+                    }
+                }
+                fclose($fitxer);
+            ?>
+        </table>
     </div>
 </body>
 </html>

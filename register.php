@@ -8,11 +8,17 @@
 <?php
     require_once("usuaris.php");
 
-    $fitxer_usuaris="usuaris.txt";
+    $fitxer_usuaris="fitxers/usuaris.txt";
     $usuari = $_POST["nom_usuari"];
     $ctsnya = $_POST["ctsnya"];
+    $nom = $_POST["nom"];
+    $cognoms = $_POST["cognoms"];
+    $adreca = $_POST["adreca"];
+    $email = $_POST["email"];
+    $telf = $_POST["telf"];
+    $visa = $_POST["visa"];
 
-    $usuari_nou = new Usuari($usuari,$ctsnya);
+    $usuari_nou = new Usuari($usuari,$ctsnya,$nom,$cognoms,$adreca,$email,$telf,$visa);
     $usuari_nou -> afegirUsuari();
     echo "S'ha afegit l'usuari ".$_POST["nom_usuari"]." a la llista d'usuaris de la web.<br>";
     echo "Per a iniciar sessió, ves a <a href=login.html class='btn btn-dark m1-2'>Fes click</a>";
