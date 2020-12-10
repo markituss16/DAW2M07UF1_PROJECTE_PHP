@@ -6,7 +6,7 @@
 </head>
 <body>
 <?php
-    require_once("usuaris.php");
+    require_once("classes/usuaris.php");
 
     $fitxer_usuaris="fitxers/usuaris.txt";
     $usuari = $_POST["nom_usuari"];

@@ -15,16 +15,16 @@
 <body>
     <nav>
         <ul>
-            <li><a href="#">Comandes</a></li>
+            <li><a href="comandes.php">Comandes</a></li>
                 <ul>
                     <li><a href="#">Visualitzar una comanda</a></li>
                     <li><a href="#">Modificar una comanda</a></li>
-                    <li><a href="#">Eliminar una comanda</a></li>
+                    <li><a href="formEsborrarComanda.php">Eliminar una comanda</a></li>
                 </ul>           
             <li><a class="active" href="admin.php">Catàleg editable</a></li>
                 <ul>
                     <li><a href="formAfegirProducte.php">Afegir productes</a></li>
-                    <li><a href="modificarProducte.html">Modificar productes</a></li>
+                    <li><a href="formModificarProducte.php">Modificar productes</a></li>
                     <li><a href="#">Eliminar productes</a></li>
                 </ul>
             <li><a href="gestionarUsuaris.php">Gestionar usuaris</a></li>
@@ -45,8 +45,8 @@
                     for($i=0; $i<sizeof($nomUsuari);$i+=2){
                         echo "<tr>
                                 <td>".$nomUsuari[$i]."</td>
-                                <form action='modificarUsuari.php' method='POST'><td><button type='submit' name='nom_usuari' value=".$nomUsuari[$i].">Modificar</button></td></form>
-                                <form action='eliminarUsuari.php' method='POST'><td><button type='submit' name='nom_usuari' value=".$nomUsuari[$i].">Esborrar</button></td></form>
+                                <form action='formModificarUsuari.php' method='POST'><td><button type='submit' name='nom_usuari' value=".$nomUsuari[$i].">Modificar</button></td></form>
+                                <form action='formEliminarUsuari.php' method='POST'><td><button type='submit' name='nom_usuari' value=".$nomUsuari[$i].">Esborrar</button></td></form>
                             </tr>";
                     }
                 }

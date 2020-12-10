@@ -24,12 +24,17 @@ $f = file_get_contents($fitxer_usuaris);
     <body>
         <nav>
             <ul>
-                <li><a class="active" href="cataleg_usuari.html">Catàleg</a></li>
-                <li><a href="#">Comandes</a></li>
+                <li><a href="comandes.php">Comandes</a></li>
                     <ul>
                         <li><a href="#">Visualitzar una comanda</a></li>
                         <li><a href="#">Modificar una comanda</a></li>
-                        <li><a href="#">Eliminar una comanda</a></li>
+                        <li><a href="formEsborrarComanda.php">Eliminar una comanda</a></li>
+                    </ul>
+                <li><a class="active" href="cataleg_usuari.html">Catàleg</a></li>
+                    <ul>
+                        <li><a href="formAfegirProducte.php">Afegir productes</a></li>
+                        <li><a href="formModificarProducte.php">Modificar productes</a></li>
+                        <li><a href="#">Eliminar productes</a></li>
                     </ul>
                 <li><a href="zona_personal.php">Zona personal</a></li>
                 <li><a href="logout.php">Tancar sessió</a></li>

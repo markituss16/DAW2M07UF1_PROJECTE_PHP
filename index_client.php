@@ -1,12 +1,13 @@
 <?php
-session_name("client");
+session_name("nom_usuari");
 session_start();
 
-if (isset($_SESSION["comandes"])){
-    $comandes = $_SESSION["comandes"];
+if (isset($_SESSION["carret"])){
+    $comandes = $_SESSION["carret"];
 }else{
     $comandes = array();
 }
+
 ?>
 
 <html>
@@ -19,39 +20,30 @@ if (isset($_SESSION["comandes"])){
 <body>
     <nav>
         <ul>
-            <li><a href="#">Comandes</a></li>
+            <li><a href="comandes.php">Comandes</a></li>
                 <ul>
                     <li><a href="#">Visualitzar una comanda</a></li>
                     <li><a href="#">Modificar una comanda</a></li>
-                    <li><a href="#">Eliminar una comanda</a></li>
+                    <li><a href="formEsborrarComanda.php">Eliminar una comanda</a></li>
                 </ul>           
             <li><a class="active" href="cataleg_usuari.html">Catàleg</a></li>
                 <ul>
                     <li><a href="formAfegirProducte.php">Afegir productes</a></li>
-                    <li><a href="modificarProducte.html">Modificar productes</a></li>
+                    <li><a href="formModificarProducte.php">Modificar productes</a></li>
                     <li><a href="#">Eliminar productes</a></li>
                 </ul>
             <li><a href="zona_personal.php">Zona personal</a></li>
             <li><a href="logout.php">Tancar sessió</a></li>
-            <li>Afegir comanda
-                <ul>
-                    <?php
-                        if(!empty($comandes)){
-                            foreach($comandes as $valor){
-                                $products = explode(':',$valor);
-                                echo '<li>Secció: '.$products[0].'<br>';
-                                echo 'Producte: '.$products[1].'<br>';
-                                echo 'Preu: '.$products[3].'<li>';
-                            }
-                        }
-                    ?>
-                </ul>
+            <li>
+                <a href="cistella.php">
+                <img id="carret" src="img_productes/carret.png" width="50" height="50"/>
+                </a>
             </li>
         </ul>
     </nav>
 
     <div>
-        <form name="afegirComanda" action="afegirComanda.php" method="POST">
+        <form name="afegirCarret" action="afegirCarret.php" method="POST">
             <?php
             $productes = "fitxers/productes.txt";
             $fitxer_productes = fopen($productes,"r") or die("No s'ha pogut obrir el fitxer");
@@ -60,6 +52,7 @@ if (isset($_SESSION["comandes"])){
 
             foreach($producte as $i){
                 $nomProducte = explode(":",$i);
+                echo '<form name="afegirCarret" action="afegirCarret.php" method="POST">';
                 echo '<div>';
                 echo '<h1>'.$nomProducte[0].'<h1>';
                 echo '<p>'.$nomProducte[3].' €</p></div>';

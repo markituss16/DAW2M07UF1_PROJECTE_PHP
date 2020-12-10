@@ -1,6 +1,6 @@
 <?php
 
-require_once("productes.php");
+require_once("classes/productes.php");
 
 $seccio = $_POST["seccio"];
 $nom = $_POST["nom"];

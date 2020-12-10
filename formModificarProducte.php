@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <html>
 	<head>
 		<meta content="text/html; charset=UTF-8" http-equiv="content-type">
@@ -22,23 +21,23 @@
                         <li><a href="#">Eliminar productes</a></li>
                     </ul>
                 <li><a href="gestionarUsuaris.php">Gestionar usuaris</a></li>
-                <li><a href="logout.php">Tancar sessió</a></li>
             </ul>
         </nav>
         <div>
-            <h1>AFEGIR PRODUCTE</h1>
-            <form action="afegirProducte.php" method="POST">
-                <label>Secció:</label>
+            <h1>MODIFICAR PRODUCTE</h1>
+            <form action="modificarProducte.php" method="POST">
+                <label>Producte que es vol modificar:</label>
+                <input name="producte" type="text"><br><br>
+                <h4>Dades a actualitzar:</h4>
+                <label>Secció</label>
                 <input id="seccio" name="seccio" type="text"><br>
-                <label>Nom:</label>
+                <label>Nom</label>
                 <input id="nom" name="nom" type="text"><br>
-                <label>Codi:</label>
-                <input id="codi" name="codi" type="text"><br>
                 <label>Preu:</label>
                 <input id="preu" name="preu" type="text"><br>
                 <label>Imatge</label>
                 <input id="imatge" name="imatge" type="text"><br>
-                <input type="submit" value="Afegir"><br>
+                <input type="submit" value="Modificar"><br>
             </form>
         </div>
     </body>

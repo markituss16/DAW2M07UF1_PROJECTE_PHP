@@ -13,16 +13,16 @@ session_start();
 <body>
     <nav>
         <ul>
-            <li><a href="#">Comandes</a></li>
+            <li><a href="comandes.php">Comandes</a></li>
                 <ul>
                     <li><a href="#">Visualitzar una comanda</a></li>
                     <li><a href="#">Modificar una comanda</a></li>
-                    <li><a href="#">Eliminar una comanda</a></li>
+                    <li><a href="formEsborrarComanda.php">Eliminar una comanda</a></li>
                 </ul>           
             <li><a class="active" href="admin.php">Catàleg editable</a></li>
                 <ul>
                     <li><a href="formAfegirProducte.php">Afegir productes</a></li>
-                    <li><a href="modificarProducte.html">Modificar productes</a></li>
+                    <li><a href="formModificarProducte.php">Modificar productes</a></li>
                     <li><a href="#">Eliminar productes</a></li>
                 </ul>
             <li><a href="gestionarUsuaris.php">Gestionar usuaris</a></li>
@@ -31,14 +31,14 @@ session_start();
     </nav>
 
     <div class="taula_productes">
-        <img id="img" src="img_productes/macbook.jpg" alt="a">  
-        <img id="img" src="img_productes/macbook.jpg" alt="a"> 
-        <img id="img" src="img_productes/macbook.jpg" alt="a"> 
-        <img id="img" src="img_productes/macbook.jpg" alt="a"> 
-        <img id="img" src="img_productes/macbook.jpg" alt="a"> 
-        <img id="img" src="img_productes/macbook.jpg" alt="a">
-        <img id="img" src="img_productes/macbook.jpg" alt="a"> 
-        <img id="img" src="img_productes/macbook.jpg" alt="a">  
+        <img id="img_pc" src="img_productes/macbook.jpg" alt="a">  
+        <img id="img_pc" src="img_productes/macbook.jpg" alt="a"> 
+        <img id="img_pc" src="img_productes/macbook.jpg" alt="a"> 
+        <img id="img_pc" src="img_productes/macbook.jpg" alt="a"> 
+        <img id="img_pc" src="img_productes/macbook.jpg" alt="a"> 
+        <img id="img_pc" src="img_productes/macbook.jpg" alt="a">
+        <img id="img_pc" src="img_productes/macbook.jpg" alt="a"> 
+        <img id="img_pc" src="img_productes/macbook.jpg" alt="a">  
     </div>
 </body>
 </html>
