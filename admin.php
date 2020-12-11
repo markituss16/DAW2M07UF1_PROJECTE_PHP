@@ -13,19 +13,19 @@ session_start();
 <body>
     <nav>
         <ul>
-            <li><a href="comandes.php">Comandes</a></li>
+            <li><a href="comandes/comandes.php">Comandes</a></li>
                 <ul>
-                    <li><a href="#">Visualitzar una comanda</a></li>
+                    <li><a href="comandes/visualitzarComanda">Visualitzar una comanda</a></li>
                     <li><a href="#">Modificar una comanda</a></li>
-                    <li><a href="formEsborrarComanda.php">Eliminar una comanda</a></li>
+                    <li><a href="comandes/formEsborrarComanda.php">Eliminar una comanda</a></li>
                 </ul>           
-            <li><a class="active" href="admin.php">Catàleg editable</a></li>
+            <li><a class="active" href="index_admin.php">Catàleg editable</a></li>
                 <ul>
-                    <li><a href="formAfegirProducte.php">Afegir productes</a></li>
-                    <li><a href="formModificarProducte.php">Modificar productes</a></li>
-                    <li><a href="#">Eliminar productes</a></li>
+                    <li><a href="productes/formAfegirProducte.php">Afegir productes</a></li>
+                    <li><a href="productes/formModificarProducte.php">Modificar productes</a></li>
+                    <li><a href="productes/formEsborrarProducte.php">Eliminar productes</a></li>
                 </ul>
-            <li><a href="gestionarUsuaris.php">Gestionar usuaris</a></li>
+            <li><a href="usuaris/gestionarUsuaris.php">Gestionar usuaris</a></li>
             <li><a href="logout.php">Tancar sessió</a></li>
         </ul>
     </nav>

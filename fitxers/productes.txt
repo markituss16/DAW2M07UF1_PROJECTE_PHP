@@ -1,3 +1,2 @@
-aa:1:aasad:12:aaa:
-marc:2:jknhj:44:oo:
-asus:3:ordinador molt bo:129:hola:
+
+Apple:Mac:1:500:img_productes/macbook.jpg:

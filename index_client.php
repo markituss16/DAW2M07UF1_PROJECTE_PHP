@@ -20,17 +20,17 @@ if (isset($_SESSION["carret"])){
 <body>
     <nav>
         <ul>
-            <li><a href="comandes.php">Comandes</a></li>
+            <li><a href="comandes/comandes.php">Comandes</a></li>
                 <ul>
-                    <li><a href="#">Visualitzar una comanda</a></li>
+                    <li><a href="comandes/visualitzarComanda.php">Visualitzar una comanda</a></li>
                     <li><a href="#">Modificar una comanda</a></li>
-                    <li><a href="formEsborrarComanda.php">Eliminar una comanda</a></li>
+                    <li><a href="comandes/formEsborrarComanda.php">Eliminar una comanda</a></li>
                 </ul>           
             <li><a class="active" href="cataleg_usuari.html">Catàleg</a></li>
                 <ul>
-                    <li><a href="formAfegirProducte.php">Afegir productes</a></li>
-                    <li><a href="formModificarProducte.php">Modificar productes</a></li>
-                    <li><a href="#">Eliminar productes</a></li>
+                    <li><a href="productes/formAfegirProducte.php">Afegir productes</a></li>
+                    <li><a href="productes/formModificarProducte.php">Modificar productes</a></li>
+                    <li><a href="productes/formEsborrarProducte.php">Eliminar productes</a></li>
                 </ul>
             <li><a href="zona_personal.php">Zona personal</a></li>
             <li><a href="logout.php">Tancar sessió</a></li>
@@ -54,8 +54,9 @@ if (isset($_SESSION["carret"])){
                 $nomProducte = explode(":",$i);
                 echo '<form name="afegirCarret" action="afegirCarret.php" method="POST">';
                 echo '<div>';
-                echo '<h1>'.$nomProducte[0].'<h1>';
+                echo '<h1>'.$nomProducte[1].'<h1>';
                 echo '<p>'.$nomProducte[3].' €</p></div>';
+                echo '<img src='.$nomProducte[4].' width="200"><br><br>';
                 echo '<input type="hidden" name="codi" value="'.$nomProducte[2].'"/>';
                 echo '<input type="submit" name="afegir" value="Afegir al carret"/>';
             }

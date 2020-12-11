@@ -6,6 +6,8 @@ class Producte{
     private $codi;
     private $preu;
     private $imatge;
+    /*private $cookie;
+    private $nocookie;*/
 
     public function __construct($seccio,$nom,$codi,$preu,$imatge){
         $this->seccio = $seccio;
@@ -13,6 +15,8 @@ class Producte{
         $this->codi = $codi;
         $this->preu = $preu;
         $this->imatge = $imatge;
+        /*$this->cookie = $cookie;
+        $this->nocookie = $nocookie;*/
     }
 
     public function __get($value){
@@ -26,19 +30,11 @@ class Producte{
     }
 
     public function afegirProducte(){
-        $producte=$_POST["seccio"].":".$_POST["nom"].":".$_POST["codi"].":".$_POST["preu"].":".$_POST["imatge"].":"."\r\n";
-        $fitxer_productes = "fitxers/productes.txt";
+        $producte=$_POST["seccio"].":".$_POST["nom"].":".$_POST["codi"].":".$_POST["preu"].":".$_POST["imatge"].":"."\n";
+        $fitxer_productes = "../fitxers/productes.txt";
         $fitxer_p = fopen($fitxer_productes,"a") or die ("No s'ha pogut afegir un nou article a la llista.");
         fwrite($fitxer_p,$producte);
         fclose($fitxer_p);
-    }
-
-    public function modificarProducte(){
-        $producte=$_POST["seccio"].":".$_POST["nom"].":".$_POST["codi"].":".$_POST["preu"].":".$_POST["imatge"].":"."\r\n";
-        $fitxer_productes = "productes.txt";
-        $fitxer = fopen($fitxer_productes,"w") or die ("No s'ha pogut afegir un nou usuari a la llista d'usuaris de web");
-        fwrite($fitxer,$producte);
-        fclose($fitxer);
     }
 }
 ?>
